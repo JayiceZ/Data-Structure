@@ -147,16 +147,22 @@ vector<int> Tree::postorder() {
 			sta.push(now);
 			now = now->left;
 		}
+		sta.push(now);
+		
 		while (sta.size()) {
 			TreeNode *temp = sta.top();
-			res.push_back(temp->val);
 			sta.pop();
+			
+			if(temp)  res.push_back(temp->val);
+
 			if (!sta.size() || temp == sta.top()->right) continue;
+			
 			TreeNode*now = sta.top()->right;
 			while (now) {
 				sta.push(now);
 				now = now->left;
 			}
+			sta.push(now);
 		}
 		return res;
 	}
