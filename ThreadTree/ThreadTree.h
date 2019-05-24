@@ -84,7 +84,7 @@ ThreadTree::ThreadTree(Tree &other) {
 //获取中序遍历访问到的一个结点
 ThreadNode* ThreadTree::__getFirst(ThreadNode*root) {
 	ThreadNode *now = root;
-	while (now&&now->lflag == 1) {                  //lflag为1证明无左子树，则为最左边
+	while (now&&now->lflag == 0) {                  //lflag为1证明无左子树，则为最左边
 		now = now->left;
 	}
 	return now;
@@ -93,7 +93,7 @@ ThreadNode* ThreadTree::__getFirst(ThreadNode*root) {
 //获取中序遍历访问到的最后一个结点
 ThreadNode* ThreadTree::__getLast(ThreadNode*root) {
 	ThreadNode *now = root;
-	while (now&&now->rflag == 1) {                  //rflag为1证明无右子树，则为最右边
+	while (now&&now->rflag == 0) {                  //rflag为1证明无右子树，则为最右边
 		now = now->right;
 	}
 	return now;
