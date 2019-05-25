@@ -267,6 +267,7 @@ graph graph::prim() {
 
 		visit[posi] = true;
 		record[posi][pathway] = dist[posi];
+		record[pathway][posi] = dist[posi];
 		//更新所有结点到已知结点的最小值
 		for(int i=0;i<size;i++){
 			int temp = (data[posi][i] == -1) ? INT_MAX : data[posi][i];
