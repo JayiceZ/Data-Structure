@@ -176,22 +176,26 @@ vector<int> graph::dijkstra(int start) {
 		if (data[start][i] == -1) dist[i] = INT_MAX;
 		else dist[i] = data[start][i];
 	}
+	
 	//寻找出当前dist最小的结点
-	int posi, min = INT_MAX;
-	for (int i = 0; i < size; i++) {
-		if (!visit[i] && dist[i] < min) {
-			min = dist[i];
-			posi = i;
+	for(int u=0;u<size-1;u++){
+		int posi, min = INT_MAX;
+		for (int i = 0; i < size; i++) {
+			if (!visit[i] && dist[i] < min) {
+				min = dist[i];
+				posi = i;
+			}
 		}
-	}
 
-	visit[posi] = true;
-	for (int j = 0; j < size; j++) {
-		if (data[posi][j] != -1 && !visit[j]) {
-			int temp = dist[posi] + data[posi][j];
-			if (temp < dist[j]) dist[j] = temp;
+		visit[posi] = true;
+		for (int j = 0; j < size; j++) {
+			if (data[posi][j] != -1 && !visit[j]) {
+				int temp = dist[posi] + data[posi][j];
+				if (temp < dist[j]) dist[j] = temp;
+			}
 		}
 	}
+	
 	for(int i = 0; i < size; i++){
 		record.push_back(dist[i]);
 	}
