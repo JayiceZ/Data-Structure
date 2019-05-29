@@ -19,6 +19,7 @@ public:
 	vector<int> preorder();    // 非递归的前序遍历
 	vector<int> inorder();
 	vector<int> postorder();
+	vector<int> postorder2();
 	vector<int> levelorder();
 	void insert(int val);
 	void mydelete(int val);
@@ -164,6 +165,28 @@ vector<int> Tree::postorder() {
 			}
 			sta.push(now);
 		}
+		return res;
+	}
+}
+
+
+//后序遍历顺序为：左右中。则把前序遍历反过来，先排出 中右左，再令数组反转，得到结果
+vector<int> Tree::postorder2() {
+	vector<int> res;
+	if (!treeroot) return res;
+	else {
+		TreeNode *now = treeroot;
+
+		stack<TreeNode*> sta;
+		sta.push(now);
+		while (sta.size()) {
+			TreeNode *temp = sta.top();
+			res.push_back(temp->val);
+			sta.pop();
+			if (temp->left) sta.push(temp->left);        //这里与前序遍历相反，先进左结点，再进右结点，达到 中右左 的效果
+			if (temp->right)  sta.push(temp->right);
+		}
+		reverse(res.begin(),res.end());         //反转，变为 左右中，即为后续遍历的结果
 		return res;
 	}
 }
