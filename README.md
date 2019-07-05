@@ -9,11 +9,11 @@
 #### 6.Sort 排序                √
 #### 7.ThreadTree 线索树        √
 #### 8.AVLTree 平衡搜索树       √
-#### 11.HuffmanTree 哈夫曼树    √
+#### 9.HuffmanTree 哈夫曼树    √
 
 ### 待完成：
-#### 9.HashM哈希表       
-#### 10.BTree B树
+#### 10.HashM哈希表       
+#### 11.BTree B树
 #### 12.BPlusTree B+树
 #### 13.竞赛树
 #### 14.红黑树
