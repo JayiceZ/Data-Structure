@@ -6,9 +6,10 @@
 #### 3.Stack 栈                √
 #### 4.BinaryTree 二叉搜索树    √
 #### 5.Graph 无向图             √
-#### 6.Sort 排序
+#### 6.Sort 排序                √
 #### 7.ThreadTree 线索树        √
 #### 8.AVLTree 平衡搜索树       √
+#### 11.HuffmanTree 哈夫曼树    √
 
 ### 待完成：
 #### 9.HashM哈希表       
