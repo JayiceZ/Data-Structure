@@ -51,9 +51,10 @@ map<int,string> HuffmanTree::HuffmanCode() {
 	while (que.size()) {
 		pair<TreeNode*, string> temp = que.front();
 		que.pop();
-
-		res[temp.first->val] = temp.second;
-
+                /*若遇到叶结点，则记录编码*/
+                if(!temp.first->left&&!temp.first->right){
+			res[temp.first->val] = temp.second;
+		}
 		if (temp.first->left) que.push(make_pair(temp.first->left, temp.second + "0"));   //若左子树存在，则左子树的哈夫曼编码为父树的编码+“0”；
 		if(temp.first->right) que.push(make_pair(temp.first->left, temp.second + "1"));   ////若右子树存在，则右子树的哈夫曼编码为父树的编码+“1”；
 	}
